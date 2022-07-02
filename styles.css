@@ -1,3 +1,4 @@
+/* all html share this */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,500;1,800&family=Open+Sans:wght@400;600;700&display=swap');
 body{
     margin: 0;
@@ -16,9 +17,15 @@ body{
 .leftContent{
     flex-grow: 1;
 }
+#landingContent{
+    background-image: url(./img/Landing\ page-\ scrolling\ photo.png);
+}
 .rightPanel{
     flex-grow: 1;
     height: 100%;
+}
+#landingRigtPanel{
+    background-color: #FD5334;
 }
 .heading{
     height: 70.875px;
@@ -44,4 +51,45 @@ body{
 .logoText{
     padding-left: 8.27px;
 
+}
+/* individual stuff */
+
+/* landing page */
+.getStarted{
+    padding-top: 223px;
+    padding-left: 85px;
+}
+.chessSays{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: white;
+    margin:0;
+}
+.alot{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin:0;
+    padding-left: 26px;
+
+}
+.whoWeAre{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: white;
+    padding-top: 16px;
+    margin: 0;
+}
+.paraContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

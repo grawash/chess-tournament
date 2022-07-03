@@ -48,7 +48,28 @@ body{
     padding-left: 8.27px;
 
 }
+
+/* create account header (shared by many) */
+.registrationHeader{
+    display: flex;
+    align-items: center;
+    height: 70.875px;
+    border-bottom: 1px solid rgba(185, 180, 196, 0.3);
+}
+
+.registrationHeaderText{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    margin-left: 48px;
+    text-transform: capitalize;
+    color: #212529;
+}
+
+
 /* individual stuff */
+
 
 /* landing page */
 #landingContent{
@@ -119,4 +140,38 @@ body{
 }
 .arrow{
     padding-left: 12px;
+}
+
+/* personal information page */
+
+#personalInfoLeft{
+    background-image: url(./img/unsplash_27LH_0jXKYI.png);
+}
+#personalInfoRight{
+}
+.emanuelContainer{
+    margin-top: 251px;
+    margin-left: 131px;
+    width: 423px;
+}
+.emanuelQuote{
+    font-family: 'Nunito';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 26px;
+    text-transform: uppercase;
+    line-height: 45px;
+    color: #212529;
+    margin: 0px;
+
+}
+.emanuelText{
+    margin-bottom: 0px;
+    font-family: 'Nunito';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 24px;
+    color: #E5E6E8;
+    text-transform: uppercase;
+
 }

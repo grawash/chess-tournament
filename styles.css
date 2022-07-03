@@ -48,6 +48,9 @@ body{
     padding-left: 8.27px;
 
 }
+.rightContent{
+    padding-left: 48px;
+}
 
 /* create account header (shared by many) */
 .registrationHeader{
@@ -174,4 +177,143 @@ body{
     color: #E5E6E8;
     text-transform: uppercase;
 
+}
+.pageIndicators{
+    margin-top: 51px;
+    width: 366px;
+    height: 65px;
+}
+.pageIcons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.pageIcon{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E5E6E8;
+    border-radius: 8px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+}
+.connectingLine{
+    width: 174px;
+    height: 0;
+    outline: 1px solid rgba(185, 180, 196, 0.3);
+    margin: 4px;
+}
+#inactive{
+    color:#95939A;
+    background-color: #F5F5F5;
+}
+.pageNames{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+.pageName{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 0px;
+}
+.personalInfoHeading{
+    margin-top: 97px;
+    margin-bottom: 0;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+}
+.personalSubText{
+    margin-top: 3px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #95939A;
+    text-transform: capitalize;
+}
+.informationForm{
+    width: 775px;
+    height: 304px;
+    margin-top: 72px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+
+}
+.wrapper > input{
+    border:none;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    height: 46px;
+    width: 100%;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
+    border-radius: 4px;
+    background-color: transparent;
+}
+.wrapper > span{
+    position: absolute;
+    left: 16px;
+    z-index: -1;
+}
+.asterisk{
+    color: #DC3545;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.back,
+.next{
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 88px;
+    height: 53px;
+    outline: 1px solid #212529;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+
+}
+.back{
+    
+    background-color: white;
+    width: 93px;
+
+
+}
+.next{
+    margin-left: auto;
+    width: 128px;
+    background-color: #212529;
+    color: white;
 }

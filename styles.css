@@ -17,16 +17,12 @@ body{
 .leftContent{
     flex-grow: 1;
 }
-#landingContent{
-    background-image: url(./img/Landing\ page-\ scrolling\ photo.png);
-}
+
 .rightPanel{
     flex-grow: 1;
     height: 100%;
 }
-#landingRigtPanel{
-    background-color: #FD5334;
-}
+
 .heading{
     height: 70.875px;
     background-color: #7025FB;
@@ -55,6 +51,12 @@ body{
 /* individual stuff */
 
 /* landing page */
+#landingContent{
+    background-image: url(./img/Landing\ page-\ scrolling\ photo.png);
+}
+#landingRigtPanel{
+    background-color: #FD5334;
+}
 .getStarted{
     padding-top: 223px;
     padding-left: 85px;
@@ -92,4 +94,29 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+.getStartedBtn{
+    background-color: #212529;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 24px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 86px;
+    width: 191px;
+    height: 53px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'open sans';
+}
+.getStartedBtn:hover{
+    outline: 4px solid rgba(194, 165, 249, 0.8);
+}
+.arrow{
+    padding-left: 12px;
 }

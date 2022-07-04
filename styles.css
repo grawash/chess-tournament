@@ -317,3 +317,6 @@ form{
     background-color: #212529;
     color: white;
 }
+.invisible{
+    color: transparent;
+}

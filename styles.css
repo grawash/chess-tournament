@@ -1,4 +1,5 @@
-/* all html share this */
+
+/* shared between all html pages this */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,500;1,800&family=Open+Sans:wght@400;600;700&display=swap');
 body{
     margin: 0;
@@ -225,6 +226,12 @@ body{
     font-size: 16px;
     margin-top: 0px;
 }
+.current{
+    background-color: #E9FAF1;
+}
+.pageComplete{
+    
+}
 .personalInfoHeading{
     margin-top: 97px;
     margin-bottom: 0;
@@ -242,6 +249,67 @@ body{
     color: #95939A;
     text-transform: capitalize;
 }
+
+/* error modal styling */
+
+.errorContainer{
+    position: absolute;
+    display: none;
+    width: 350px;
+    min-height: 87px;
+    right: 35px;
+    top: 226px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+.errorHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 6px 8px 12px;
+    gap: 8px;
+}
+.errHeaderText{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #DC3545;
+    margin: 0;
+}
+.errorBody{
+    display: flex;
+    align-items: center;
+    padding: 12px;
+}
+.error{
+    margin:0px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #212529;
+}
+.errLine{
+    height: 0px;
+    opacity: 0.05;
+    border: 1px solid #000000;
+}
+.crossDiv{
+    display: flex;
+    margin-left: auto;
+    height: 24px;
+    width: 24px;
+    justify-content: center;
+    align-items: center;
+}
+.cross{
+    cursor: pointer;
+}
+
+/* form styling */
+
 .informationForm{
     width: 775px;
     height: 304px;
@@ -260,31 +328,61 @@ form{
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
+    width: 775px;
+    height: 46px;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
 
 }
 .wrapper > input{
     border:none;
     box-sizing: border-box;
     padding: 8px 16px;
-    height: 46px;
-    width: 100%;
-    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
+    height: 30px;
+    width: 698px;
     border-radius: 4px;
-    background-color: transparent;
+    outline: none;
+    border: 0px solid;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+}
+.wrapper:hover , .wrapper:hover > input{
+    background-color: #F8F9FA;
+    color: rgba(33, 37, 41, 0.5)
+}
+.wrapper:hover > input + span{
+    color: black;
+}
+.wrapper:active , .wrapper:active > input{
+    background-color: #E9ECEF;
+    color: black;
+}
+.invalid, .invalid > input{
+    background-color: #FFEFEF;
+    color: #DC3545;
+}
+.invalid, .invalid > input + span{
+    color: black;
 }
 .wrapper > span{
     position: absolute;
     left: 16px;
-    z-index: -1;
+    pointer-events: none;
 }
 .asterisk{
     color: #DC3545;
+}
+.check{
+    height: 20px;
+    width: 20px;
+    padding-right: 21px;
+    display: none;
 }
 .buttons{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
 }
 .back,
 .next{
@@ -319,4 +417,11 @@ form{
 }
 .invisible{
     color: transparent;
+}
+ /* removes ugly styling when using auto-complete */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
 }

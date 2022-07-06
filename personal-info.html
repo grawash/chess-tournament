@@ -31,7 +31,7 @@
             <div class="rightContent">
                 <div class="pageIndicators">
                     <div class="pageIcons">
-                        <div class="pageIcon">
+                        <div class="pageIcon" id="currentPage">
                             <p>1</p>
                         </div>
                         <div class="connectingLine">
@@ -48,31 +48,45 @@
                 </div>
                 <h2 class="personalInfoHeading">Personal information</h2>
                 <p class="personalSubText">This is basic informaton fields</p>  
-                <div class="error">
-                    <p></p>
+                <div class="errorContainer">
+                    <div class="errorHeader">
+                        <img src="./img/Vector.svg" alt="">
+                        <p class="errHeaderText"></p>
+                        <div class="crossDiv">
+                            <img src="./img/cross.svg" alt="" class="cross">
+                        </div>
+                    </div>
+                    <div class="errLine"></div>
+                    <div class="errorBody">
+                        <p class="error"></p>
+                    </div>
                 </div> 
                 <div class="informationForm">
                     <form action="" id="infoForm" novalidate>
                         <div class="wrapper">
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" id="name" minlength="2" required>
                             <span>Name <span class="asterisk">*</span></span>
+                            <img src="./img/check.svg" alt="" class="check" id="nameCheck">
                         </div>
                         <div class="wrapper">
-                            <input type="email" id="mail">
+                            <input type="email" id="mail" minlength="8" required>
                             <span>Email address <span class="asterisk">*</span></span>
+                            <img src="./img/check.svg" alt="" class="check" id="mailCheck">
                         </div>
                         <div class="wrapper">
-                            <input type="tel" name="" id="">
+                            <input type="tel" name="" id="tel" minlength="9" maxlength="9"  required>
                             <span>Phone number <span class="asterisk">*</span></span>
+                            <img src="./img/check.svg" alt="" class="check" id="telCheck">
                         </div>
                         <div class="wrapper">
-                            <input type="text" name="" id="date" >
+                            <input type="text" name="" id="date" required>
                             <span>Date of birth <span class="asterisk">*</span></span>
+                            <img src="./img/check.svg" alt="" class="check" id="dateCheck">
                         </div>
                     </form>
                     <div class="buttons">
                         <button class="back">back</button>
-                        <button class="next" form="infoForm">next <img src="./img/Vector.svg" alt="" class="arrow"></button>
+                        <button class="next" form="infoForm">next <img src="./img/arrow.svg" alt="" class="arrow"></button>
                     </div>
                 </div>
             </div>

@@ -18,6 +18,20 @@
 // })
 // const input = document.querySelector('input')
 // input.addEventListener('click', )
+
+const form  = document.getElementsByTagName('form')[0];
+const errorModal = document.querySelector('.errorContainer')
+const email = document.querySelector('#mail');
+const phoneNum = document.querySelector('#tel')
+const nameField = document.querySelector('#name')
+const emailError = document.querySelector('.error');
+const errorHeader = document.querySelector('.errHeaderText');
+const date = document.querySelector('#date')
+const closeBtn = document.querySelector('.cross')
+const validMail ='@redberry.ge'
+var regExp = /[a-zA-Z]/g;
+
+
 const inputs = document.querySelectorAll('input')
 inputs.forEach(element => {
     element.addEventListener('click',() =>{ hideFunc(element)})
@@ -32,13 +46,10 @@ function hideFunc(input){
     pageIcon.classList.add("current")
     let span = input.nextElementSibling;
     if(span.nodeName!=='IMG'){
-      console.log(span)
       let asterisk = span.children[0];
-      console.log(asterisk)
       if(span)span.remove()
       if(asterisk)asterisk.remove()
     }
-
 }
 function showFunc(input){
   if(input.value===""){
@@ -77,17 +88,7 @@ datePicker.addEventListener('blur', () => {
     }
 })
 
-const form  = document.getElementsByTagName('form')[0];
-const errorModal = document.querySelector('.errorContainer')
-const email = document.querySelector('#mail');
-const phoneNum = document.querySelector('#tel')
-const nameField = document.querySelector('#name')
-const emailError = document.querySelector('.error');
-const errorHeader = document.querySelector('.errHeaderText');
-const date = document.querySelector('#date')
-const closeBtn = document.querySelector('.cross')
-const validMail ='@redberry.ge'
-var regExp = /[a-zA-Z]/g;
+
 
 //removes invalid class when correcting invalid field
 inputs.forEach(element =>{
@@ -99,26 +100,34 @@ inputs.forEach(element =>{
 //checks every input field for errors 
 form.addEventListener('submit', function (event) {
   let currentMail= email.value;
-  if(!nameField.validity.valid){
+  if(nameField.value==='' || nameField.value.length<2){
     showError();
     event.preventDefault();
     nameField.parentNode.classList.add('invalid')
-  }else if(!email.validity.valid || !confirmEnding(currentMail,validMail)) {
+  }else if(email.value==='' || !confirmEnding(currentMail,validMail)) {
     showError();
     event.preventDefault();
     email.parentNode.classList.add('invalid')
     showCheck()
-  }else if(!phoneNum.validity.valid || regExp.test(phoneNum.value)){
+  }else if(phoneNum.value==='' || !(/^\d+$/.test(phoneNum.value)) || phoneNum.value.length<9){
     showError();
     event.preventDefault();
-    showCheck();
     phoneNum.parentNode.classList.add('invalid')
-  }else if (!date.validity.valid){
+    showCheck();
+  }else if (date.value===''){
     showError();
     event.preventDefault();
     date.parentNode.classList.add('invalid')
     showCheck();
+  }else{
+    event.preventDefault();
+    showCheck();
+    closeModal();
   }
+  localStorage.setItem('name', nameField.value);
+  localStorage.setItem('email', email.value);
+  localStorage.setItem('number', phoneNum.value);
+  localStorage.setItem('date_of_birth', date.value);
 });
 
 //displays check sign if error not found
@@ -132,34 +141,34 @@ function showCheck(){
 
 //displays error message
 function showError() {
-  if(nameField.validity.valueMissing) {
+  if(nameField.value==='') {
     emailError.textContent = 'You need to enter your name'
     errorHeader.textContent='Invalid Name'
-  }  else if(nameField.validity.tooShort) {
+  } else if(nameField.value.length < 2) {
     emailError.textContent = 'Your name needs to be at least 2 characters long'
     errorHeader.textContent='Invalid Name'
-  } else if(email.validity.valueMissing) {
+  } else if(email.value==='') {
     emailError.textContent = 'You need to enter an e-mail address.';
     errorHeader.textContent='Invalid Email'
   } else if(email.validity.typeMismatch) {
     emailError.textContent = 'Entered value needs to be an e-mail address.';
     errorHeader.textContent='Invalid Email'
-  } else if(email.validity.tooShort) {
+  } else if(email.value.length<8) {
     emailError.textContent = `Email should be at least ${ email.minLength } characters; you entered ${ email.value.length }.`;
     errorHeader.textContent='Invalid Email'
   } else if (!confirmEnding(email.value,validMail)) {
     emailError.textContent = `Please enter valid email adress`;
     errorHeader.textContent='Invalid Email'
-  } else if(phoneNum.validity.valueMissing){
+  } else if (phoneNum.value===''){
     emailError.textContent = 'You need to enter your phone number'
     errorHeader.textContent='Invalid Number'
-  } else if (regExp.test(phoneNum.value)){
+  } else if (!(/^\d+$/.test(phoneNum.value))){
     emailError.textContent = 'Should only contain numbers'
-    errorHeader.textContent='Invalid Number'
-  } else if (phoneNum.validity.tooShort){
+    errorHeader.textContent = 'Invalid Number'
+  } else if (phoneNum.value.length<9){
     emailError.textContent = `should be ${ phoneNum.minLength } characters; you entered ${ phoneNum.value.length }.`
     errorHeader.textContent='Invalid Number'
-  } else if (date.validity.valueMissing){
+  } else if (date.value===''){
     emailError.textContent = `Please enter date`
     errorHeader.textContent='Invalid Date'
   }
@@ -175,3 +184,15 @@ closeBtn.addEventListener('click',closeModal);
 function closeModal(){
   errorModal.style.display='none';
 }
+function populateForm(){
+  nameField.value=localStorage.getItem('name');
+  email.value=localStorage.getItem('email');
+  phoneNum.value=localStorage.getItem('number');
+  date.value=localStorage.getItem('date_of_birth');
+  inputs.forEach(element =>{
+    if(!element.validity.valueMissing){
+      hideFunc(element)
+    }
+  })
+}
+populateForm();

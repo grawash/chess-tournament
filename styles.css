@@ -52,6 +52,9 @@ body{
 .rightContent{
     padding-left: 48px;
 }
+a{
+    text-decoration: none;
+}
 
 /* create account header (shared by many) */
 .registrationHeader{
@@ -414,6 +417,13 @@ form{
     width: 128px;
     background-color: #212529;
     color: white;
+}
+.back:hover{
+    background-color: rgba(185, 180, 196, 0.3);
+    outline: 1px solid rgba(194, 165, 249, 0.8);
+}
+.next:hover{
+    outline: 1px solid rgba(194, 165, 249, 0.8);
 }
 .invisible{
     color: transparent;

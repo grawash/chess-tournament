@@ -38,7 +38,6 @@ body{
     left: 60px;
     top: 25.3125px;
     border-radius: 0px;
-    /* padding-top: 30px; */
     align-items: center;
 }
 .logo{
@@ -206,6 +205,9 @@ a{
     font-weight: 700;
     font-size: 18px;
 }
+.success > p{
+    content: url(./img/pageComlete.svg);
+}
 .connectingLine{
     width: 174px;
     height: 0;
@@ -232,10 +234,7 @@ a{
 .current{
     background-color: #E9FAF1;
 }
-.pageComplete{
-    
-}
-.personalInfoHeading{
+.infoHeading{
     margin-top: 97px;
     margin-bottom: 0;
     font-family: 'Open Sans';
@@ -243,7 +242,7 @@ a{
     font-weight: 600;
     font-size: 32px;
 }
-.personalSubText{
+.subText{
     margin-top: 3px;
     font-family: 'Open Sans';
     font-style: normal;
@@ -428,7 +427,56 @@ form{
 .invisible{
     color: transparent;
 }
- /* removes ugly styling when using auto-complete */
+
+/* chess experience page */
+
+#experienceLeft{
+    background-image: url(./img/fallingPiece.png);
+}
+.siegbertQuote{
+    font-family: 'Nunito';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 48px;
+    text-transform: uppercase;
+    color: #212529;
+    width: 615px;
+    height: 83px;
+    margin-top: 150px;
+    margin-left: 117px;
+}
+.siegbert{
+    font-family: 'Nunito';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #093F68;
+    margin-top: 32px;
+    margin-left: 466px;
+}
+.chooseForm{
+    margin-top: 80px;
+    width: 810px;
+}
+.selectInputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.selectWrapper{
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
+    border-radius: 4px;
+    width: 392px;
+    height: 46px;
+}
+.selectWrapper > select{
+    height: 100%;
+    width: 100%;
+}
+
+ /* removes ugly default styling when using auto-complete */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 

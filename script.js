@@ -1,24 +1,3 @@
-// async function getData() {
-//     const img = document.querySelector('.temp')
-//     const response = await fetch(
-//       `https://chess-tournament-api.devtest.ge/api/grandmasters`,
-//       { mode: 'cors' },
-//     );
-//     const data = await response.json();
-//     const image = await data[0].image.blob();
-//     img.src = data[0].image;
-//     console.log(image);
-//     return data;
-//   }
-//     getData();
-// const form = document.querySelector('form')
-// let formInputs = form.childNodes;
-// formInputs.forEach(element =>{
-//     console.log(element)
-// })
-// const input = document.querySelector('input')
-// input.addEventListener('click', )
-
 const form  = document.getElementsByTagName('form')[0];
 const errorModal = document.querySelector('.errorContainer')
 const email = document.querySelector('#mail');
@@ -88,12 +67,26 @@ datePicker.addEventListener('blur', () => {
     }
 })
 
+function populateSelect(){
 
+}
 
 //removes invalid class when correcting invalid field
 inputs.forEach(element =>{
   element.addEventListener('input', function (event) {
+    const pageIcon = document.querySelector('#currentPage')
     if(element.parentNode.classList.contains('invalid')){element.parentNode.classList.remove('invalid')}
+    localStorage.setItem('personalInfo', 'none')
+    pageIcon.classList.remove('succes')
+    if(pageIcon.children[0].type='img'){
+      pageIcon.children[0].remove()
+      const pageContent=document.createElement('p')
+      if(pageIcon.classList.contains('page1')){
+        pageContent.textContent='1'
+      }
+      else{pageContent.textContent='2'}
+      pageIcon.appendChild(pageContent)
+    }
 });
 });
 
@@ -123,18 +116,33 @@ form.addEventListener('submit', function (event) {
     event.preventDefault();
     showCheck();
     closeModal();
+    succesfulSubmit()
+    goToNextPage();
   }
   localStorage.setItem('name', nameField.value);
   localStorage.setItem('email', email.value);
   localStorage.setItem('number', phoneNum.value);
   localStorage.setItem('date_of_birth', date.value);
 });
-
+function succesfulSubmit(){
+  const pageIcon = document.querySelector('#currentPage')
+  const successImg = document.createElement('img')
+  successImg.src='./img/pageComlete.svg'
+  pageIcon.children[0].remove()
+  pageIcon.appendChild(successImg)
+  showCheck();
+  localStorage.setItem('personalInfo', 'success')
+}
+function goToNextPage(){
+  window.location.href = './chess-experience.html';
+}
 //displays check sign if error not found
 function showCheck(){
   inputs.forEach(element => {
     if(!element.parentNode.classList.contains('invalid') && element.value!==''){
       element.nextElementSibling.style.display='block'
+    } else {
+      element.nextElementSibling.style.display='none'
     }
   })
 }
@@ -194,5 +202,10 @@ function populateForm(){
       hideFunc(element)
     }
   })
+  if(localStorage.getItem('personalInfo')=='success'){
+    succesfulSubmit();
+  }
 }
+
+
 populateForm();

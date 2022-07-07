@@ -4,9 +4,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
+        <div class="leftPanel">
+            <div class="heading">
+                <div class="logoBox">
+                    <img src="./img/Vector.png" alt="crown logo" class="logo">  
+                    <img class="logoText" src="./img/Redberry Knight Cup.png">  
+                </div>
+            </div>
+            <div class="leftContent" id="experienceLeft">
+                <p class="siegbertQuote">“Many have become chess masters;<br> no one has become the master of chess.”</p>
+                <p class="siegbert">- Siegbert Tarrasch</p>
+            </div>
+        </div>
+
+        <div class="rightPanel" id="experienceRight">
+            <div class="registrationHeader">
+                <h2 class="registrationHeaderText">First step is done, continue to finish onboarding</h2>
+            </div>
+            <div class="rightContent">
+                <div class="pageIndicators">
+                    <div class="pageIcons">
+                        <div class="pageIcon page1" id="currentPage">
+                            <p>1</p>
+                        </div>
+                        <div class="connectingLine">
     
+                        </div>
+                        <div class="pageIcon page2" id="inactive">
+                            <p>2</p>
+                        </div>
+                    </div>
+                    <div class="pageNames">
+                        <p class="pageName">Personal information</p>
+                        <p class="pageName">Chess experience</p>
+                    </div>
+                </div>
+                <h2 class="infoHeading">Chess experience</h2>
+                <p class="subText">This is basic informaton fields</p>  
+                <div class="errorContainer">
+                    <div class="errorHeader">
+                        <img src="./img/Vector.svg" alt="">
+                        <p class="errHeaderText"></p>
+                        <div class="crossDiv">
+                            <img src="./img/cross.svg" alt="" class="cross">
+                        </div>
+                    </div>
+                    <div class="errLine"></div>
+                    <div class="errorBody">
+                        <p class="error"></p>
+                    </div>
+                </div> 
+                <form action="" novalidate class="chooseForm">
+                    <div class="selectInputs">
+                        <div class="selectWrapper">
+                            <select name="" id="" class="level">
+                                <option value="" disabled selected hidden></option>
+                                <option value="begginer">begginer</option>
+                                <option value="intermediate">intermediate</option>
+                                <option value="pro">pro</option>
+                            </select>
+                        </div>
+                        <div class="selectWrapper">
+                            <select name="" id="" placeholder="champion">
+                                <option value="" disabled selected hidden></option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

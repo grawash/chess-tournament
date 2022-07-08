@@ -470,12 +470,133 @@ form{
     border-radius: 4px;
     width: 392px;
     height: 46px;
+    position: relative;
 }
-.selectWrapper > select{
-    height: 100%;
+.selectButton{
+    height: 84%;
     width: 100%;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
-
+.selectButton > span{
+    margin: 0;
+    color: #212529;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+}
+.levelOptions{
+    box-sizing: border-box;
+    margin-top: 3px;
+    margin-left: 10px;
+    width: 392px;
+    height: 0px;
+    transition: height 0.15s ease-out;
+    transition: transform 0.5s ease-out;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap:9px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    position: absolute;
+    justify-content: center;
+}
+#activeLevel{
+    height: 199px;
+    outline: 1px solid rgba(185, 180, 196, 0.3);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: height 0.25s ease-in;
+}
+.levelOptions > a{
+    height: 45px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.levelOptions > a > p{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    padding:0px 20px;
+}
+.levelOptions > a:hover{
+    background-color: #F7F7F9;
+}
+.champOptions{
+    box-sizing: border-box;
+    margin-top: 3px;
+    margin-left: 10px;
+    width: 392px;
+    max-height: 0;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    position: absolute;
+    justify-content: center;
+}
+#activeChamp{
+    max-height: 419px;
+    outline: 1px solid rgba(185, 180, 196, 0.3);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: max-height 0.25s ease-in;
+}
+.champOptions > a {
+    height: 72px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.champOptions > a > p{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    padding-left:28px;
+}
+.champOptions > a > img{
+    height: 72px;
+    width: 100px;
+}
+.champOptions > a:hover{
+    background-color: #F7F7F9;
+}
+.totalOptions{
+    margin: 0;
+    padding-top: 16px;
+    padding-left: 28px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #817D7D;
+}
+.dropContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 13px;
+    width: 13px;
+}
+.dropdown{
+    height: 7px;
+    width: 13px;
+    /* padding-right: 19.5px; */
+    transition: transform 0.15s linear;
+    transform-origin: center center;
+}
  /* removes ugly default styling when using auto-complete */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 

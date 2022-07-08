@@ -51,6 +51,10 @@ function validate(){
         showCheck();
         closeModal();
         succesfulSubmit()
+        localStorage.setItem('name', nameField.value);
+        localStorage.setItem('email', email.value);
+        localStorage.setItem('number', phoneNum.value);
+        localStorage.setItem('date_of_birth', date.value);
         championPage();
         }
         localStorage.setItem('name', nameField.value);

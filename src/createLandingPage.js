@@ -4,6 +4,7 @@ import landingPhoto from './img/Landing page- scrolling photo.png'
 import arrowSvg from './img/arrow.svg'
 import logoPhoto from './img/Vector.png'
 import logoTxtPhoto from './img/Redberry Knight Cup.png'
+import {validate,populateForm} from './validateInputs'
 
 const container = document.createElement('div')
 const body = document.querySelector('body')
@@ -62,7 +63,7 @@ function createRightPanel(){
     alot.textContent='a lot about'
     whoWeAre.textContent='who we are'
     getStartedBtn.textContent='Get Started'
-    getStartedBtn.onclick=infoPage
+    getStartedBtn.addEventListener('click', () =>{infoPage(),populateForm()})
     arrow.src=arrowSvg
     container.appendChild(rightPanel)
     rightPanel.appendChild(getStarted)

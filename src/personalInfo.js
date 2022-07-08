@@ -1,7 +1,11 @@
-import vector from './img/Vector.svg'
-import crossImg from './img/cross.svg'
 import check from './img/check.svg'
 import arrowIcon from './img/arrow.svg'
+import {hideFunc,showFunc, toggleDate} from './hidePlaceholders'
+import {validate,populateForm} from './validateInputs'
+import controllInvStatus from './removeInvalidStatus'
+import removeContents from './removeContent'
+import createErrorContainer from './createErrorModal'
+
 function createLeftPanelInfo(){
     const leftContent = document.querySelector('.leftContent')
     leftContent.setAttribute('id', 'personalInfoLeft')
@@ -78,6 +82,9 @@ function createInfoForm(rightContent){
     phoneInput.type='tel'
     const DateInput = document.createElement('input')
     DateInput.type='text'
+    nameInput.setAttribute('id','name')
+    emailInput.setAttribute('id','mail')
+    phoneInput.setAttribute('id','tel')
     DateInput.setAttribute('id', 'date')
     wrapperText.appendChild(nameInput)
     wrapperEmail.appendChild(emailInput)
@@ -119,8 +126,8 @@ function createInfoForm(rightContent){
     const nextButtonLink = document.createElement('a')
     backButtonLink.classList.add('backPersonal')
     nextButtonLink.classList.add('nextPersonalInfo')
-    const backButton = document.createElement('btn')
-    const nextButton = document.createElement('btn')
+    const backButton = document.createElement('button')
+    const nextButton = document.createElement('button')
     backButton.classList.add('back')
     nextButton.classList.add('next')
     backButton.textContent='back'
@@ -134,38 +141,23 @@ function createInfoForm(rightContent){
     nextImg.src=arrowIcon
     nextImg.classList.add('arrow')
     nextButton.appendChild(nextImg)
+    nextButton.setAttribute('form','infoForm')
+    //nextButton.addEventListener('click', () =>{validate()})
+    const inputs = document.querySelectorAll('input')
+    //adds hideFunc/showFunc to input elements for displaying/hiding "placeholders"
+    inputs.forEach(element => {
+        element.required=true
+        element.addEventListener('click',() =>{ hideFunc(element)})
+        element.addEventListener('focus',() =>{ hideFunc(element)})
+        element.addEventListener('blur',() =>{ showFunc(element)})
+        toggleDate();
+})
+    //disables invalid/checked status when correcting input
+    controllInvStatus()
+    //ads form validation logic to submit button
+    validate();
 }
-function createErrorContainer(rightContent){
-    const errorContainer = document.createElement('div')
-    const errorHeader = document.createElement('div')
-    const errLine = document.createElement('div')
-    const errorBody = document.createElement('div')
-    errorContainer.classList.add('errorContainer')
-    errorHeader.classList.add('errorHeader')
-    errLine.classList.add('errLine')
-    errorBody.classList.add('errorBody')
-    rightContent.appendChild(errorContainer)
-    errorContainer.appendChild(errorHeader)    
-    errorContainer.appendChild(errLine)
-    errorContainer.appendChild(errorBody)
-    const warning = document.createElement('img')
-    const errHeaderText = document.createElement('p')
-    const crossDiv = document.createElement('div')
-    warning.src=vector
-    errHeaderText.classList.add('errHeaderText')
-    crossDiv.classList.add('crossDiv')
-    errorHeader.appendChild(warning)
-    errorHeader.appendChild(errHeaderText)
-    errorHeader.appendChild(crossDiv)
-    const cross = document.createElement('img')
-    cross.classList.add('cross')
-    cross.src=crossImg
-    crossDiv.appendChild(cross)
-    const errorText = document.createElement('p')
-    errorText.classList.add('error')
-    errorBody.appendChild(errorText)
 
-}
 function createPagination(rightContent){
     const pageIndicators = document.createElement('div')
     const pageIcons = document.createElement('div')
@@ -179,6 +171,8 @@ function createPagination(rightContent){
     page2.classList.add('page2')
     page1.classList.add('pageIcon')
     page2.classList.add('pageIcon')
+    page1.setAttribute('id','currentPage')
+    page2.setAttribute('id', 'inactive')
     connectingLine.classList.add('connectingLine')
     const pageContent1 = document.createElement('p')
     const pageContent2 = document.createElement('p')
@@ -202,27 +196,6 @@ function createPagination(rightContent){
     pageIndicators.appendChild(pageNames)
     pageNames.appendChild(pageName1)
     pageNames.appendChild(pageName2)
-
-}
-function removeContents(){
-    const leftContent = document.querySelector('.leftContent')
-    if(leftContent){
-        const leftContentChildren = leftContent.childNodes
-        if(leftContentChildren){
-            leftContentChildren.forEach(element => {
-                element.remove()
-            });
-        }
-    }
-    const rightContent = document.querySelector('.rightContent')
-    if(rightContent){
-        const rightContentChildren = rightContent.childNodes
-        if(rightContentChildren){
-            rightContentChildren.forEach(element => {
-                element.remove()
-            });
-        }
-    }
 
 }
 function cleanRightPanel(){

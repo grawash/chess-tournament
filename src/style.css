@@ -1,0 +1,485 @@
+
+/* shared between all html pages this */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,500;1,800&family=Open+Sans:wght@400;600;700&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: flex;
+    height: 100vh;
+}
+.leftPanel{
+    display: flex;
+    flex-direction: column;
+    width: 923px;
+    height: 100%;
+}
+.leftContent{
+    flex-grow: 1;
+}
+
+.rightPanel{
+    flex-grow: 1;
+    height: 100%;
+}
+
+.heading{
+    height: 70.875px;
+    background-color: #7025FB;
+}
+.logoBox{
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    position: absolute;
+    height: 23.350000381469727px;
+    width: 275.7567138671875px;
+    left: 60px;
+    top: 25.3125px;
+    border-radius: 0px;
+    align-items: center;
+}
+.logo{
+    height: max-content;
+    width: max-content;
+}
+.logoText{
+    padding-left: 8.27px;
+
+}
+.rightContent{
+    padding-left: 48px;
+}
+a{
+    text-decoration: none;
+}
+
+/* create account header (shared by many) */
+.registrationHeader{
+    display: flex;
+    align-items: center;
+    height: 70.875px;
+    border-bottom: 1px solid rgba(185, 180, 196, 0.3);
+}
+
+.registrationHeaderText{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    margin-left: 48px;
+    text-transform: capitalize;
+    color: #212529;
+}
+
+
+/* individual stuff */
+
+
+/* landing page */
+#landingContent{
+    background-image: url(./img/Landing\ page-\ scrolling\ photo.png);
+}
+#landingRigtPanel{
+    background-color: #FD5334;
+}
+.getStarted{
+    padding-top: 223px;
+    padding-left: 85px;
+}
+.chessSays{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: white;
+    margin:0;
+}
+.alot{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin:0;
+    padding-left: 26px;
+
+}
+.whoWeAre{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: white;
+    padding-top: 16px;
+    margin: 0;
+}
+.paraContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.getStartedBtn{
+    background-color: #212529;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 24px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 86px;
+    width: 191px;
+    height: 53px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'open sans';
+}
+.getStartedBtn:hover{
+    outline: 4px solid rgba(194, 165, 249, 0.8);
+}
+.arrow{
+    padding-left: 12px;
+}
+
+/* personal information page */
+
+#personalInfoLeft{
+    background-image: url(./img/unsplash_27LH_0jXKYI.png);
+}
+#personalInfoRight{
+}
+.emanuelContainer{
+    margin-top: 251px;
+    margin-left: 131px;
+    width: 423px;
+}
+.emanuelQuote{
+    font-family: 'Nunito';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 26px;
+    text-transform: uppercase;
+    line-height: 45px;
+    color: #212529;
+    margin: 0px;
+
+}
+.emanuelText{
+    margin-bottom: 0px;
+    font-family: 'Nunito';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 24px;
+    color: #E5E6E8;
+    text-transform: uppercase;
+
+}
+.pageIndicators{
+    margin-top: 51px;
+    width: 366px;
+    height: 65px;
+}
+.pageIcons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.pageIcon{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E5E6E8;
+    border-radius: 8px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+}
+.success > p{
+    content: url(./img/pageComlete.svg);
+}
+.connectingLine{
+    width: 174px;
+    height: 0;
+    outline: 1px solid rgba(185, 180, 196, 0.3);
+    margin: 4px;
+}
+#inactive{
+    color:#95939A;
+    background-color: #F5F5F5;
+}
+.pageNames{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+.pageName{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 0px;
+}
+.current{
+    background-color: #E9FAF1;
+}
+.infoHeading{
+    margin-top: 97px;
+    margin-bottom: 0;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+}
+.subText{
+    margin-top: 3px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #95939A;
+    text-transform: capitalize;
+}
+
+/* error modal styling */
+
+.errorContainer{
+    position: absolute;
+    display: none;
+    width: 350px;
+    min-height: 87px;
+    right: 35px;
+    top: 226px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+.errorHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 6px 8px 12px;
+    gap: 8px;
+}
+.errHeaderText{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #DC3545;
+    margin: 0;
+}
+.errorBody{
+    display: flex;
+    align-items: center;
+    padding: 12px;
+}
+.error{
+    margin:0px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #212529;
+}
+.errLine{
+    height: 0px;
+    opacity: 0.05;
+    border: 1px solid #000000;
+}
+.crossDiv{
+    display: flex;
+    margin-left: auto;
+    height: 24px;
+    width: 24px;
+    justify-content: center;
+    align-items: center;
+}
+.cross{
+    cursor: pointer;
+}
+
+/* form styling */
+
+.informationForm{
+    width: 775px;
+    height: 304px;
+    margin-top: 72px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 775px;
+    height: 46px;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
+
+}
+.wrapper > input{
+    border:none;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    height: 30px;
+    width: 698px;
+    border-radius: 4px;
+    outline: none;
+    border: 0px solid;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+}
+.wrapper:hover , .wrapper:hover > input{
+    background-color: #F8F9FA;
+    color: rgba(33, 37, 41, 0.5)
+}
+.wrapper:hover > input + span{
+    color: black;
+}
+.wrapper:active , .wrapper:active > input{
+    background-color: #E9ECEF;
+    color: black;
+}
+.invalid, .invalid > input{
+    background-color: #FFEFEF;
+    color: #DC3545;
+}
+.invalid, .invalid > input + span{
+    color: black;
+}
+.wrapper > span{
+    position: absolute;
+    left: 16px;
+    pointer-events: none;
+}
+.asterisk{
+    color: #DC3545;
+}
+.check{
+    height: 20px;
+    width: 20px;
+    padding-right: 21px;
+    display: none;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.back,
+.next{
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 88px;
+    height: 53px;
+    outline: 1px solid #212529;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+
+}
+.back{
+    
+    background-color: white;
+    width: 93px;
+
+
+}
+.next{
+    margin-left: auto;
+    width: 128px;
+    background-color: #212529;
+    color: white;
+}
+.back:hover{
+    background-color: rgba(185, 180, 196, 0.3);
+    outline: 1px solid rgba(194, 165, 249, 0.8);
+}
+.next:hover{
+    outline: 1px solid rgba(194, 165, 249, 0.8);
+}
+.invisible{
+    color: transparent;
+}
+
+/* chess experience page */
+
+#experienceLeft{
+    background-image: url(./img/fallingPiece.png);
+}
+.siegbertQuote{
+    font-family: 'Nunito';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 48px;
+    text-transform: uppercase;
+    color: #212529;
+    width: 615px;
+    height: 83px;
+    margin-top: 150px;
+    margin-left: 117px;
+}
+.siegbert{
+    font-family: 'Nunito';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #093F68;
+    margin-top: 32px;
+    margin-left: 466px;
+}
+.chooseForm{
+    margin-top: 80px;
+    width: 810px;
+}
+.selectInputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.selectWrapper{
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
+    border-radius: 4px;
+    width: 392px;
+    height: 46px;
+}
+.selectWrapper > select{
+    height: 100%;
+    width: 100%;
+}
+
+ /* removes ugly default styling when using auto-complete */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}

@@ -297,6 +297,7 @@ function createRadio(form){
     radioBoxNo.appendChild(radioNoLabel)
     radioDiv.appendChild(radioBoxYes)
     radioDiv.appendChild(radioBoxNo)
+    localStorage.setItem('already_participated', true)
     changeRadio(radioYes)
     changeRadio(radioNo)
 }

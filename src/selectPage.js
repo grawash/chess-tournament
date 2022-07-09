@@ -11,7 +11,6 @@ import build from './createLandingPage'
 import infoPage from './personalInfo'
 
 
-
 function championPage(){
     removeContents()
     createLeftPanelSelect()

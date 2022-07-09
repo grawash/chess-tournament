@@ -5,6 +5,8 @@ import arrowSvg from './img/arrow.svg'
 import logoPhoto from './img/Vector.png'
 import logoTxtPhoto from './img/Redberry Knight Cup.png'
 import {validate,populateForm} from './validateInputs'
+import clearAll from './clearAllContent'
+
 
 const container = document.createElement('div')
 const body = document.querySelector('body')
@@ -63,7 +65,7 @@ function createRightPanel(){
     alot.textContent='a lot about'
     whoWeAre.textContent='who we are'
     getStartedBtn.textContent='Get Started'
-    getStartedBtn.addEventListener('click', () =>{infoPage(),populateForm()})
+    getStartedBtn.addEventListener('click', () =>{localStorage.setItem('page','personal'),infoPage(),populateForm()})
     arrow.src=arrowSvg
     container.appendChild(rightPanel)
     rightPanel.appendChild(getStarted)
@@ -77,6 +79,7 @@ function createRightPanel(){
 
 
 function build(){
+    clearAll()
     createLeftPanel(container)
     createRightPanel()
 }

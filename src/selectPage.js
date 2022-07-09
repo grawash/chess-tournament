@@ -97,14 +97,12 @@ function removeSelectedOption(button){
     const linkContainer = button.nextElementSibling
     if (localStorage.getItem('experience_level') && linkContainer.classList.contains('levelOptions')){
         const span = button.childNodes[0]
-        console.log(span)
         span.remove()
         const newSpan = document.createElement('span')
         newSpan.textContent=localStorage.getItem('experience_level')
         button.insertBefore(newSpan, button.childNodes[0])
     } else if(localStorage.getItem('character_id') && linkContainer.classList.contains('champOptions')){
         const span = button.childNodes[0]
-        console.log(span)
         span.remove()
         const newSpan = document.createElement('span')
         newSpan.textContent=localStorage.getItem('character_name')
@@ -112,13 +110,8 @@ function removeSelectedOption(button){
     }
 
     linkContainer.childNodes.forEach(element => {
-        console.log(element)
-        element.onclick=functionen
-        function functionen(){console.log('waaa')}
         element.addEventListener('click',() =>{
-
             const span = button.childNodes[0]
-            console.log(span)
             span.remove()
             const newSpan = document.createElement('span')
             newSpan.textContent=element.childNodes[0].textContent
@@ -226,12 +219,79 @@ function createSelectForm(rightContent){
             champion.appendChild(championImg)
             champOptions.appendChild(champion)
             selectWrapperChamp.appendChild(champOptions)
-            console.log(element)
         });
         dropdown(selectChamp)
         removeSelectedOption(selectChamp)
     })
-    
+    createRadio(form)
+}
+function changeRadio(radio){
+    let radioValue = radio.value
+    if(localStorage.getItem('already_participated')==='true' && radioValue==='yes'){
+        radio.setAttribute('checked', true)
+
+    } else if(localStorage.getItem('already_participated')==='false' && radioValue==='no'){
+        radio.setAttribute('checked', true)
+    }
+    radio.addEventListener('change', () => {
+        if(radioValue==='yes'){
+            localStorage.setItem('already_participated', true)
+
+        } else {
+            localStorage.setItem('already_participated', false)
+        }
+
+    })
+}
+function createRadio(form){
+    const radioContainer = document.createElement('div')
+    radioContainer.classList.add('radioContainer')
+    form.appendChild(radioContainer) 
+    const radioHeaderContainer = document.createElement('div')
+    radioHeaderContainer.classList.add('radioHeaderContainer')
+    const radioHeader = document.createElement('p')
+    radioHeader.textContent="Have you participated in the Redberry Championship? "
+    radioHeader.classList.add('radioHeader')
+    const radioAsterisk = document.createElement('p')
+    radioAsterisk.textContent='*'
+    radioAsterisk.style.color="red"
+    radioAsterisk.style.paddingLeft="7px"
+    radioAsterisk.style.paddingTop="5px"
+    radioContainer.appendChild(radioHeaderContainer)
+    radioHeaderContainer.appendChild(radioHeader)
+    radioHeaderContainer.appendChild(radioAsterisk)
+    const radioYes = document.createElement('input')
+    radioYes.type='radio'
+    const radioNo = document.createElement('input')
+    radioNo.type='radio'
+    radioYes.value='yes'
+    radioNo.value='no'
+    radioYes.setAttribute('name', 'participate')
+    radioNo.setAttribute('name', 'participate')
+    radioYes.setAttribute('id', 'yes')
+    radioYes.setAttribute('checked', true)
+    radioNo.setAttribute('id', 'no')
+    const radioYesLabel = document.createElement('label')
+    const radioNoLabel = document.createElement('label')
+    radioYesLabel.setAttribute('for', 'yes')
+    radioNoLabel.setAttribute('for', 'no')
+    radioYesLabel.textContent='Yes'
+    radioNoLabel.textContent='No'
+    const radioDiv = document.createElement('div')
+    radioDiv.classList.add('radioDiv')
+    radioContainer.appendChild(radioDiv)
+    const radioBoxYes = document.createElement('div')
+    const radioBoxNo = document.createElement('div')
+    radioBoxYes.classList.add('radioBox')
+    radioBoxNo.classList.add('radioBox')
+    radioBoxYes.appendChild(radioYes)
+    radioBoxYes.appendChild(radioYesLabel)
+    radioBoxNo.appendChild(radioNo)
+    radioBoxNo.appendChild(radioNoLabel)
+    radioDiv.appendChild(radioBoxYes)
+    radioDiv.appendChild(radioBoxNo)
+    changeRadio(radioYes)
+    changeRadio(radioNo)
 }
 
 

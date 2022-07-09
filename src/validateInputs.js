@@ -30,6 +30,7 @@ function validate(){
         if(nameField.value==='' || nameField.value.length<2){
         showError();
         event.preventDefault();
+        showCheck()
         nameField.parentNode.classList.add('invalid')
         }else if(email.value==='' || !confirmEnding(currentMail,validMail)) {
         showError();
@@ -52,16 +53,8 @@ function validate(){
         showCheck();
         closeModal();
         succesfulSubmit()
-        localStorage.setItem('name', nameField.value);
-        localStorage.setItem('email', email.value);
-        localStorage.setItem('number', phoneNum.value);
-        localStorage.setItem('date_of_birth', date.value);
         championPage();
         }
-        localStorage.setItem('name', nameField.value);
-        localStorage.setItem('email', email.value);
-        localStorage.setItem('number', phoneNum.value);
-        localStorage.setItem('date_of_birth', date.value);
     });
 }
   function succesfulSubmit(){
@@ -75,16 +68,23 @@ function validate(){
   }
   //displays check sign if error not found
   function showCheck(){
+    const email = document.querySelector('#mail');
+    const phoneNum = document.querySelector('#tel')
+    const nameField = document.querySelector('#name')
+    const date = document.querySelector('#date')
     const inputs = document.querySelectorAll('input')
-    inputs.forEach(element => {
-      if(!element.parentNode.classList.contains('invalid') && element.value!==''){
-        element.nextElementSibling.style.display='block'
-      } else if ( element.nextElementSibling.nodeName==='SPAN' ){
-        element.nextElementSibling.style.display='block'
-      } else {
-        element.nextElementSibling.style.display='none'
-      }
-    })
+    const validMail ='@redberry.ge'
+    let currentMail= email.value;
+    if(nameField.value.length>=2){
+      nameField.nextElementSibling.style.display='block'
+    }if(confirmEnding(currentMail,validMail)) {
+      email.nextElementSibling.style.display='block'
+    }if((/^\d+$/.test(phoneNum.value)) && phoneNum.value.length>=9){
+      phoneNum.nextElementSibling.style.display='block'
+      console.log('wth')
+    }if (date.value!==''){
+      date.nextElementSibling.style.display='block'
+    }
   }
   
   //displays error message

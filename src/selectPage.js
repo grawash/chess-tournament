@@ -4,6 +4,8 @@ import getData from './getData'
 import dropdown from './selectDropdown'
 import pageComlete from './img/pageComlete.svg'
 import dropdownSvg from './img/dropdown.svg'
+import arrowIcon from './img/arrow.svg'
+import validateSelectForm from './validateSelectForm'
 
 
 function championPage(){
@@ -50,6 +52,7 @@ function createRightContent(rightPanel){
     rightContent.appendChild(subText)
     createErrorContainer(rightContent)
     createSelectForm(rightContent)
+    createButtons(rightContent)
     
 }
 function createPagination(rightContent){
@@ -130,6 +133,7 @@ function createSelectForm(rightContent){
     const selectInputs = document.createElement('div')
     form.setAttribute('novalidate', true)
     form.classList.add('chooseForm')
+    form.setAttribute('id', 'selectForm')
     selectInputs.classList.add('selectInputs')
     const selectWrapperExp = document.createElement('div')
     const selectWrapperChamp = document.createElement('div')
@@ -292,6 +296,32 @@ function createRadio(form){
     radioDiv.appendChild(radioBoxNo)
     changeRadio(radioYes)
     changeRadio(radioNo)
+}
+
+function createButtons(rightContent){
+    const chessButtons = document.createElement('div')
+    chessButtons.classList.add('chessButtons')
+    const backButtonLink = document.createElement('a')
+    const nextButtonLink = document.createElement('a')
+    backButtonLink.classList.add('backChess')
+    nextButtonLink.classList.add('nextChess')
+    const backButton = document.createElement('button')
+    const nextButton = document.createElement('button')
+    backButton.classList.add('back')
+    nextButton.classList.add('next')
+    backButton.textContent='back'
+    nextButton.textContent='next'
+    backButtonLink.appendChild(backButton)
+    nextButtonLink.appendChild(nextButton)
+    chessButtons.appendChild(backButtonLink)
+    chessButtons.appendChild(nextButtonLink)
+    rightContent.appendChild(chessButtons)
+    const nextImg = document.createElement('img')
+    nextImg.src=arrowIcon
+    nextImg.classList.add('arrow')
+    nextButton.appendChild(nextImg)
+    nextButton.setAttribute('form','selectForm')
+    validateSelectForm()
 }
 
 

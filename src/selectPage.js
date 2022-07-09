@@ -93,6 +93,45 @@ function createPagination(rightContent){
     page1.appendChild(successImg)
 
 }
+function removeSelectedOption(button){
+    const linkContainer = button.nextElementSibling
+    if (localStorage.getItem('experience_level') && linkContainer.classList.contains('levelOptions')){
+        const span = button.childNodes[0]
+        console.log(span)
+        span.remove()
+        const newSpan = document.createElement('span')
+        newSpan.textContent=localStorage.getItem('experience_level')
+        button.insertBefore(newSpan, button.childNodes[0])
+    } else if(localStorage.getItem('character_id') && linkContainer.classList.contains('champOptions')){
+        const span = button.childNodes[0]
+        console.log(span)
+        span.remove()
+        const newSpan = document.createElement('span')
+        newSpan.textContent=localStorage.getItem('character_name')
+        button.insertBefore(newSpan, button.childNodes[0])
+    }
+
+    linkContainer.childNodes.forEach(element => {
+        console.log(element)
+        element.onclick=functionen
+        function functionen(){console.log('waaa')}
+        element.addEventListener('click',() =>{
+
+            const span = button.childNodes[0]
+            console.log(span)
+            span.remove()
+            const newSpan = document.createElement('span')
+            newSpan.textContent=element.childNodes[0].textContent
+            button.insertBefore(newSpan, button.childNodes[0])
+            if(linkContainer.classList.contains('levelOptions')){
+                localStorage.setItem('experience_level', element.childNodes[0].textContent)
+            } else if(linkContainer.classList.contains('champOptions')){
+                localStorage.setItem('character_id', element.id)
+                localStorage.setItem('character_name', element.childNodes[0].textContent)
+            }
+        })
+    })
+}
 function createSelectForm(rightContent){
     const form = document.createElement('form')
     const selectInputs = document.createElement('div')
@@ -169,6 +208,7 @@ function createSelectForm(rightContent){
     levelDropIcon.classList.add('dropdown')
     champDropIcon.classList.add('dropdown')
     dropdown(selectLevel)
+    removeSelectedOption(selectLevel)
     getData().then((obj) => {
         const total = document.createElement('p')
         total.textContent = `(Total ${obj.length})`
@@ -189,8 +229,11 @@ function createSelectForm(rightContent){
             console.log(element)
         });
         dropdown(selectChamp)
+        removeSelectedOption(selectChamp)
     })
+    
 }
+
 
 
 export default championPage

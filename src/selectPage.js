@@ -6,6 +6,10 @@ import pageComlete from './img/pageComlete.svg'
 import dropdownSvg from './img/dropdown.svg'
 import arrowIcon from './img/arrow.svg'
 import validateSelectForm from './validateSelectForm'
+import {validate,populateForm} from './validateInputs'
+import build from './createLandingPage'
+import infoPage from './personalInfo'
+
 
 
 function championPage(){
@@ -322,8 +326,14 @@ function createButtons(rightContent){
     nextButton.appendChild(nextImg)
     nextButton.setAttribute('form','selectForm')
     validateSelectForm()
+    backButton.addEventListener('click',  () =>{displayPersonalInfo()})
 }
 
-
+function displayPersonalInfo(){
+    build()
+    infoPage()
+    populateForm()
+    localStorage.setItem('page', 'personal')
+}
 
 export default championPage

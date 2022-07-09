@@ -5,6 +5,8 @@ import {validate,populateForm} from './validateInputs'
 import controllInvStatus from './removeInvalidStatus'
 import removeContents from './removeContent'
 import createErrorContainer from './createErrorModal'
+import build from './createLandingPage'
+
 
 function createLeftPanelInfo(){
     const leftContent = document.querySelector('.leftContent')
@@ -86,6 +88,9 @@ function createInfoForm(rightContent){
     emailInput.setAttribute('id','mail')
     phoneInput.setAttribute('id','tel')
     DateInput.setAttribute('id', 'date')
+    emailInput.setAttribute('minlength','8')
+    phoneInput.setAttribute('minlength','9')
+    phoneInput.setAttribute('maxlength','9')
     wrapperText.appendChild(nameInput)
     wrapperEmail.appendChild(emailInput)
     wrapperPhone.appendChild(phoneInput)
@@ -151,7 +156,12 @@ function createInfoForm(rightContent){
         element.addEventListener('focus',() =>{ hideFunc(element)})
         element.addEventListener('blur',() =>{ showFunc(element)})
         toggleDate();
-})
+    })
+    backButton.addEventListener('click', () => {
+        localStorage.setItem('page', 'landing')
+        build()
+    }) 
+    
     //disables invalid/checked status when correcting input
     controllInvStatus()
     //ads form validation logic to submit button

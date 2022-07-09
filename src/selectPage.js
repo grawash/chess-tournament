@@ -300,7 +300,7 @@ function createRadio(form){
     localStorage.setItem('already_participated', true)
     changeRadio(radioYes)
     changeRadio(radioNo)
-}
+} 
 
 function createButtons(rightContent){
     const chessButtons = document.createElement('div')

@@ -4,6 +4,15 @@ function controllInvStatus(){
         console.log('a')
         element.addEventListener('input', function (event) {
         element.nextElementSibling.style.display='none'
+        if(element.id==='name'){
+            localStorage.setItem('name', element.value);
+        } else if (element.type==='email'){
+            localStorage.setItem('email', element.value);
+        } else if (element.type==='tel'){
+            localStorage.setItem('number', element.value);
+        } else if (element.id==='date'){
+            localStorage.setItem('date_of_birth', element.value);
+        }
         const pageIcon = document.querySelector('#currentPage')
         if(element.parentNode.classList.contains('invalid')){element.parentNode.classList.remove('invalid')}
         localStorage.setItem('personalInfo', 'none')

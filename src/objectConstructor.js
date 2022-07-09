@@ -25,6 +25,7 @@ function constructObject(){
         return { name, email, phone, date_of_birth, experience_level, character_id, already_participated };
     }
     const dataObject = dataFactory(name, email, phone, date_of_birth, experience_level, character_id, already_participated)
+    localStorage.clear()
     return dataObject
 }
 export default constructObject

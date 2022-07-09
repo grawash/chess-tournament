@@ -48,6 +48,7 @@ function validate(){
         showCheck();
         }else{
         event.preventDefault();
+        localStorage.setItem('page','select')
         showCheck();
         closeModal();
         succesfulSubmit()
@@ -108,7 +109,7 @@ function validate(){
       emailError.textContent = 'Entered value needs to be an e-mail address.';
       errorHeader.textContent='Invalid Email'
     } else if(email.value.length<8) {
-      emailError.textContent = `Email should be at least ${ email.minLength } characters; you entered ${ email.value.length }.`;
+      emailError.textContent = `Email should be at least 9 characters; you entered ${ email.value.length }.`;
       errorHeader.textContent='Invalid Email'
     } else if (!confirmEnding(email.value,validMail)) {
       emailError.textContent = `Please enter valid email adress`;

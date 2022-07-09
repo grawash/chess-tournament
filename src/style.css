@@ -385,6 +385,8 @@ form{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 88px;
+
 }
 .back,
 .next{
@@ -396,7 +398,6 @@ form{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 88px;
     height: 53px;
     outline: 1px solid #212529;
     border-radius: 8px;
@@ -596,6 +597,67 @@ form{
     /* padding-right: 19.5px; */
     transition: transform 0.15s linear;
     transform-origin: center center;
+}
+.radioContainer{
+    width: 775px;
+    margin-top: 68px;
+}
+.radioHeaderContainer{
+    padding-top: 8px;
+    padding-left: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.radioHeaderContainer > p{
+    margin: 0;
+    height: fit-content;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #212529;
+}
+.radioDiv{
+    display: flex;
+    flex-direction: row;
+    gap:16px;
+    padding-left: 16px;
+    font-size: 22px;
+    margin-top: 12px;
+}
+.radioBox{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 8px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #212529;
+}
+.radioBox > input[type="radio"]{
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #D9D9D9;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+.radioBox > input[type="radio"]:checked{
+    border: 5px solid #0D6EFD;
+}
+.chessButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 159px;
+    width: 801px;
 }
  /* removes ugly default styling when using auto-complete */
 input:-webkit-autofill,

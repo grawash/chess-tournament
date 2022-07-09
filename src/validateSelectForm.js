@@ -20,13 +20,13 @@ function validateSelectForm(){
             onboardingPage()
         } else if(!selectLevel){
             event.preventDefault()
-            emailError.textContent = 'You need to enter your name'
+            emailError.textContent = 'You need to choose level'
             errorHeader.textContent='Invalid Select'
             emailError.className = 'error active';
             errorModal.style.display='block';
         } else if(!selectChamp){
             event.preventDefault()
-            emailError.textContent = 'You need to enter your name'
+            emailError.textContent = 'You need to select champion'
             errorHeader.textContent='Invalid Select'
             emailError.className = 'error active';
             errorModal.style.display='block';

@@ -2,11 +2,7 @@ import onboarding from './img/onboarding.png'
 import removeContents from './removeContent'
 import successRocket from './img/Succsess rocket.svg'
 
-function onboardingPage(){
-    console.log('hi')
-    createLeftContent()
-    createRightContent()
-}
+
 function createLeftContent(){
     const leftContent = document.querySelector('.leftContent')
     leftContent.setAttribute('id', 'onboardingLeft')
@@ -36,6 +32,10 @@ function createRightContent(){
     onboardingText.classList.add('onboardingText')
     onboardingText.textContent='Onboarding completed!'
     onboardingDiv.appendChild(onboardingText)
+}
+function onboardingPage(){
+    createLeftContent()
+    createRightContent()
 }
 
 export default onboardingPage

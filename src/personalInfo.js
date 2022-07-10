@@ -1,11 +1,12 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-restricted-globals */
 import check from './img/check.svg'
 import arrowIcon from './img/arrow.svg'
 import {hideFunc,showFunc, toggleDate} from './hidePlaceholders'
-import {validate,populateForm} from './validateInputs'
+import { validate } from './validateInputs'
 import controllInvStatus from './removeInvalidStatus'
 import removeContents from './removeContent'
 import createErrorContainer from './createErrorModal'
-import build from './createLandingPage'
 
 
 function createLeftPanelInfo(){
@@ -24,12 +25,7 @@ function createLeftPanelInfo(){
     leftContent.appendChild(emanuelContainer)
 }
 
-function createRightPanelInfo(){
-    cleanRightPanel()
-    const rightPanel = document.querySelector('.rightPanel')
-    createHeader(rightPanel)
-    createRightContent(rightPanel)
-}
+
 function createHeader(rightPanel){
     rightPanel.setAttribute('id', 'personalInfoRight')
     const registrationHeader = document.createElement('div')
@@ -40,22 +36,7 @@ function createHeader(rightPanel){
     rightPanel.appendChild(registrationHeader)
     registrationHeader.appendChild(registrationHeaderText)
 }
-function createRightContent(rightPanel){
-    const rightContent = document.createElement('div')
-    createPagination(rightContent)
-    rightPanel.appendChild(rightContent)
-    const infoHeading = document.createElement('h2')
-    const subText = document.createElement('p')
-    infoHeading.classList.add('infoHeading')
-    subText.classList.add('subText')
-    infoHeading.textContent='Personal information'
-    subText.textContent='This is basic informaton fields'
-    rightContent.appendChild(infoHeading)
-    rightContent.appendChild(subText)
-    createErrorContainer(rightContent)
-    createInfoForm(rightContent)
-    
-}
+
 function createInfoForm(rightContent){
     const informationForm = document.createElement('div')
     const form = document.createElement('form')
@@ -100,7 +81,6 @@ function createInfoForm(rightContent){
         const span = document.createElement('span')
         const asteriskSpan = document.createElement('span')
         const checkMark = document.createElement('img')
-        console.log(element.children[0])
         switch(element.children[0].type){
             case 'text':
                 span.textContent='Name ';
@@ -112,7 +92,7 @@ function createInfoForm(rightContent){
                 span.textContent='Phone number ';
                 break;
             default:
-                console.log('nah fam')
+                console.log('YOU SHOULD NOT BE SEEING THIS!')
         }
         if(element.children[0].id==='date')
         span.textContent='Date of birth'
@@ -147,9 +127,9 @@ function createInfoForm(rightContent){
     nextImg.classList.add('arrow')
     nextButton.appendChild(nextImg)
     nextButton.setAttribute('form','infoForm')
-    //nextButton.addEventListener('click', () =>{validate()})
+    // nextButton.addEventListener('click', () =>{validate()})
     const inputs = document.querySelectorAll('input')
-    //adds hideFunc/showFunc to input elements for displaying/hiding "placeholders"
+    // adds hideFunc/showFunc to input elements for displaying/hiding "placeholders"
     inputs.forEach(element => {
         element.required=true
         element.addEventListener('click',() =>{ hideFunc(element)})
@@ -157,14 +137,15 @@ function createInfoForm(rightContent){
         element.addEventListener('blur',() =>{ showFunc(element)})
         toggleDate();
     })
+    // index.js displays correct pagge according do page key of localstorage
     backButton.addEventListener('click', () => {
         localStorage.setItem('page', 'landing')
-        build()
+        location.reload()
     }) 
     
-    //disables invalid/checked status when correcting input
+    // disables invalid/checked status when correcting input
     controllInvStatus()
-    //ads form validation logic to submit button
+    // ads form validation logic to submit button
     validate();
 }
 
@@ -208,6 +189,7 @@ function createPagination(rightContent){
     pageNames.appendChild(pageName2)
 
 }
+
 function cleanRightPanel(){
     const rightPanel = document.querySelector('.rightPanel')
     if(rightPanel){
@@ -218,6 +200,29 @@ function cleanRightPanel(){
             });
         }
     }
+}
+
+function createRightContent(rightPanel){
+    const rightContent = document.createElement('div')
+    createPagination(rightContent)
+    rightPanel.appendChild(rightContent)
+    const infoHeading = document.createElement('h2')
+    const subText = document.createElement('p')
+    infoHeading.classList.add('infoHeading')
+    subText.classList.add('subText')
+    infoHeading.textContent='Personal information'
+    subText.textContent='This is basic informaton fields'
+    rightContent.appendChild(infoHeading)
+    rightContent.appendChild(subText)
+    createErrorContainer(rightContent)
+    createInfoForm(rightContent)
+    
+}
+function createRightPanelInfo(){
+    cleanRightPanel()
+    const rightPanel = document.querySelector('.rightPanel')
+    createHeader(rightPanel)
+    createRightContent(rightPanel)
 }
 function infoPage(){
     removeContents()

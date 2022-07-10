@@ -1,8 +1,12 @@
+/* eslint-disable no-cond-assign */
+/* eslint-disable no-constant-condition */
+/* eslint-disable no-param-reassign */
+
+// removes invalid status from input fields when making correction, also saves values on localstorage
 function controllInvStatus(){
     const inputs = document.querySelectorAll('input')
     inputs.forEach(element =>{
-        console.log('a')
-        element.addEventListener('input', function (event) {
+        element.addEventListener('input', () => {
         element.nextElementSibling.style.display='none'
         if(element.id==='name'){
             localStorage.setItem('name', element.value);

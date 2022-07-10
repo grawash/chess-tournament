@@ -1,6 +1,7 @@
+/* eslint-disable no-param-reassign */
 function dropdown(button) {
     const linkContainer = button.nextElementSibling
-    button.addEventListener('click',function(event) {
+    button.addEventListener('click',(event) => {
         event.stopPropagation();
         document.querySelector('.page2').classList.add('current')
         button.lastChild.lastChild.style.transform="rotate(180deg)"
@@ -14,7 +15,7 @@ function dropdown(button) {
         }
     })
     linkContainer.childNodes.forEach(element => {
-        element.addEventListener('click', function(event) {
+        element.addEventListener('click', (event) => {
             event.stopPropagation();
             button.nextElementSibling.removeAttribute('id')
             button.lastChild.lastChild.style.transform="rotate(0deg)"

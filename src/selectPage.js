@@ -83,6 +83,7 @@ function changeRadio(radio) {
         radio.setAttribute('checked', true)
     }
     radio.addEventListener('change', () => {
+        document.querySelector('.page2').classList.add('current')
         if (radioValue === 'yes') {
             localStorage.setItem('already_participated', true)
         } else {
@@ -163,9 +164,18 @@ function removeSelectedOption(button) {
         newSpan.textContent = localStorage.getItem('character_name')
         button.insertBefore(newSpan, button.childNodes[0])
     }
-
+    // stores select values in loalstorage, appends new value as a placeholder
+    // removes invalid status
     linkContainer.childNodes.forEach((element) => {
         element.addEventListener('click', () => {
+            const selectLevelWrapper = document.querySelector('.level').parentNode
+            const selecChamptWrapper = document.querySelector('.champion').parentNode
+            if(selectLevelWrapper.classList.contains('invalid')){
+                selectLevelWrapper.classList.remove('invalid')
+            }
+            if (selecChamptWrapper.classList.contains('invalid')){
+                selecChamptWrapper.classList.remove('invalid')
+            }
             const span = button.childNodes[0]
             span.remove()
             const newSpan = document.createElement('span')

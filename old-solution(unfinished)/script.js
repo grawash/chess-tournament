@@ -74,6 +74,8 @@ function populateSelect(){
 //removes invalid class when correcting invalid field
 inputs.forEach(element =>{
   element.addEventListener('input', function (event) {
+    console.log(element)
+    element.nextElementSibling.style.display='none'
     const pageIcon = document.querySelector('#currentPage')
     if(element.parentNode.classList.contains('invalid')){element.parentNode.classList.remove('invalid')}
     localStorage.setItem('personalInfo', 'none')

@@ -7,6 +7,17 @@ function closeModal() {
     errorModal.style.display = 'none'
 }
 
+function removeInvalidStatus(){
+    const selectLevelWrapper = document.querySelector('.level').parentNode
+    const selecChamptWrapper = document.querySelector('.champion').parentNode
+    if(selectLevelWrapper.classList.contains('invalid')){
+        selectLevelWrapper.classList.remove('invalid')
+    }
+    if (selecChamptWrapper.classList.contains('invalid')){
+        selecChamptWrapper.classList.remove('invalid')
+    }
+}
+
 function validateSelectForm() {
     const closeBtn = document.querySelector('.cross')
     closeBtn.addEventListener('click', closeModal)
@@ -19,24 +30,29 @@ function validateSelectForm() {
         event.preventDefault()
         const selectLevel = localStorage.getItem('experience_level')
         const selectChamp = localStorage.getItem('character_id')
+        const selectLevelWrapper = document.querySelector('.level').parentNode
+        const selecChamptWrapper = document.querySelector('.champion').parentNode
         if (nextBtn.textContent === 'Done') {
             const object = constructObject()
             postData(object)
             onboardingPage()
         } else if (!selectLevel) {
             event.preventDefault()
+            selectLevelWrapper.classList.add('invalid')
             emailError.textContent = 'You need to choose level'
             errorHeader.textContent = 'Invalid Select'
             emailError.className = 'error active'
             errorModal.style.display = 'block'
         } else if (!selectChamp) {
             event.preventDefault()
+            selecChamptWrapper.classList.add('invalid')
             emailError.textContent = 'You need to select champion'
             errorHeader.textContent = 'Invalid Select'
             emailError.className = 'error active'
             errorModal.style.display = 'block'
         } else {
             event.preventDefault()
+            removeInvalidStatus()
             closeModal()
             nextBtn.childNodes.forEach((element) => {
                 element.remove()
@@ -45,5 +61,6 @@ function validateSelectForm() {
         }
     })
 }
+
 
 export default validateSelectForm
